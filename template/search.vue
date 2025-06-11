@@ -103,7 +103,7 @@ export default {
       this.dataList = res.data.list;
       this.total = res.data.count;
     },
-    onExportExcel() {
+    onExportExcel()
       //导出
       if (this.dataList.length == 0) {
         this.$message.error("数据为空无法导出");

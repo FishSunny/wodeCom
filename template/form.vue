@@ -18,7 +18,7 @@
       </a-select>
     </a-form-model-item>
     <a-form-model-item label="审核结果" prop="contractState">
-      <a-radio-group v-model="auditForm.contractState" prop="contractState" @change="changeContractState">
+      <a-radio-group v-model="formData.contractState" prop="contractState" @change="changeContractState">
         <a-radio value="2">通过</a-radio>
         <a-radio value="3">未通过</a-radio>
       </a-radio-group>

@@ -18,7 +18,7 @@
     <template slot="footer">
       <a-button key="back" @click="cancelModal">取消</a-button>
       <a-button key="submit" :loading="loading" type="primary" @click="submitModal">确定</a-button>
-    </template>å
+    </template>
   </a-modal>
   <Component v-if="" @cancelModal="" @submitModal=""></Component>
 </template>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       visible: true,
+      loading: false,
     }
   },
   methods: {
@@ -36,7 +37,25 @@ export default {
       this.$emit('cancelModal');
     },
     submitModal() {
-      this.$emit('submitModal');
+      this.$refs.formDataRef.validate(async (valid) => {
+        if (valid) {
+          this.loading = true;
+          let res = null;
+          if (this.isEdit) {
+            res = await XXXApi.editPaySetting(this.formData);
+          } else {
+            res = await XXXApi.addPaySetting(this.formData)
+          }
+          if (res.code !== '0') {
+            this.loading = false;
+            this.$message.error(res.errorMsg);
+            return;
+          }
+          this.loading = false;
+          this.$message.success(`${this.isEdit ? '编辑' : '添加'}收款渠道成功`);
+          this.$emit('submitModal');
+        }
+      })
     }
   }
 }
