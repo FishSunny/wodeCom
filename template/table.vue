@@ -118,6 +118,31 @@ export default {
   methods: {
     toEdit(item) {},
     toDetail(item) {},
+    toOperate(item, ifDisable) {
+      this.$confirm({
+        title: '提示',
+        content: ifDisable ? '确定要下架该活动？' : '确定要上架该活动？',
+        okText: '确定',
+        cancelText: '取消',
+        onOk: async() => {
+          await this.operateDisabled(item,ifDisable);
+        }
+      });
+    },
+    // 调接口禁用启用
+    async operateDisabled(item,ifDisable) {
+      let postData = {
+        activityId:item.activityId,
+        activityState: ifDisable ? 2 : 1
+      };
+      let res = await XXXApi.operateDisabled(postData);
+      if (res.code !== '0') {
+        this.$message.error(res.errorMsg);
+        return;
+      }
+      this.$message.success('操作成功！');
+      this.searchList();
+    },
     toDelete(item) {
       this.$confirm({
         title: '提示',

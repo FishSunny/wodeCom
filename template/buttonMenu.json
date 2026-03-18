@@ -1,0 +1,46 @@
+[
+  {
+    "systemId": "20001",
+    "menuType": 4,
+    "menuCode": "otherSettleList:audit",
+    "menuName": "审核",
+    "parentId": "706771024851607552",
+    "sortNo": "2",
+    "menuIco": "",
+    "menuUrl": "",
+    "menuUrlEx": ""
+  },
+  {
+    "systemId": "20001",
+    "menuType": 4,
+    "menuCode": "otherSettleList:detail",
+    "menuName": "详情",
+    "parentId": "706771024851607552",
+    "sortNo": "3",
+    "menuIco": "",
+    "menuUrl": "",
+    "menuUrlEx": ""
+  },
+  {
+    "systemId": "20001",
+    "menuType": 4,
+    "menuCode": "otherSettleList:edit",
+    "menuName": "修改",
+    "parentId": "706771024851607552",
+    "sortNo": "4",
+    "menuIco": "",
+    "menuUrl": "",
+    "menuUrlEx": ""
+  },
+  {
+    "systemId": "20001",
+    "menuType": 4,
+    "menuCode": "otherSettleList:add",
+    "menuName": "添加",
+    "parentId": "706771024851607552",
+    "sortNo": "5",
+    "menuIco": "",
+    "menuUrl": "",
+    "menuUrlEx": ""
+  }
+]

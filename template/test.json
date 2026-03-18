@@ -1,0 +1,7 @@
+[
+  { "name": "获取保证金列表", "url": "/after-admin/billMargin/getMarginList", "method": "POST" },
+  { "name": "调整保证金", "url": "/after-admin/billMargin/updateMargin", "method": "POST" },
+  { "name": "新增保证金", "url": "/after-admin/billMargin/addMargin", "method": "POST" },
+  { "name": "获取其他金额信息", "url": "/after-admin/billMargin/getOtherAmount", "method": "POST" },
+  { "name": "查看保证金、账户余额", "url": "/after-admin/billMargin/getAmountForOrder", "method": "POST" },
+]

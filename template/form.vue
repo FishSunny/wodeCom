@@ -17,6 +17,15 @@
         <a-select-option v-for="(item, index) in sourceTypeList" :key="index" :value="item.dicKey">{{ item.dicVal }}</a-select-option>
       </a-select>
     </a-form-model-item>
+
+    <!-- 带搜索-->
+    <a-form-model-item class="ald-flex ald-col-top" label="负责人" prop="userList">
+      <a-select mode="multiple" show-search style="width:300px" v-model="formData.userList" placeholder="请选择负责人" :filter-option="filterOption">
+        <a-select-option v-for="(item, index) in userList" :key="index" :value="item.userId">
+          {{ item.nickName }}
+        </a-select-option>
+      </a-select>
+    </a-form-model-item>
     <a-form-model-item label="审核结果" prop="contractState">
       <a-radio-group v-model="formData.contractState" prop="contractState" @change="changeContractState">
         <a-radio value="2">通过</a-radio>
@@ -48,6 +57,13 @@ export default {
       },
       formData: {}
     }
+  },
+  methods: {
+    filterOption(input, option) {
+      return (
+          option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      );
+    },
   }
 }
 </script>
